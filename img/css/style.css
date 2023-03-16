@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+ul li {
+    box-sizing: border-box;
+    width: 15em;
+    height: 3em;
+    font-size: 20px;
+    border-radius: 0.5em;
+    margin: 0.5em;
+    box-shadow: 0 0 1em rgba(0,0,0,0.2);
+    color: #fff;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    line-height: 3em;
+    transition: 0.3s;
+    cursor: pointer;
+}
+ul li:nth-child(odd) {
+    background: linear-gradient(to right, blue, tomato);
+    text-align: left;
+    padding-left: 10%;
+    transform: perspective(500px) rotatey(45deg);
+}
+ul li:nth-child(even) {
+    background: linear-gradient(to left, blue,tomato);
+    text-align: right;
+    padding-right: 10%;
+    transform: perspective(500px) rotatey(-45deg);
+}
+ul li:nth-child(odd):hover {
+    transform: perspective(200px) rotatey(45deg);
+    padding-left: 5%;
+}
+ul li:nth-child(even):hover {
+    transform: perspective(200px) rotatey(-45deg);
+    padding-right: 5%;
+}
+
+/*NAME*/
+
+.animate-charcter {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 200px;
+}
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/*3D SHAPE*/
+
+#shape {
+    position: relative;
+    width: calc(10vw + 10vh);
+    height: calc(10vw + 10vh);
+    animation: rotate 60s linear infinite;
+    transform-style: preserve-3d;
+}
+#shape div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 20px 0 lightgreen;
+}
+div.front {
+    transform: translateZ(calc(-5vw - 5vh));
+}
+div.back {
+    transform: translateZ(calc(5vw + 5vh));
+}
+div.right {
+    transform: translatex(calc(5vw + 5vh)) rotateY(90deg);
+}
+div.left {
+    transform: translatex(calc(-5vw - 5vh)) rotateY(90deg);
+}
+div.top {
+    transform: translatey(calc(5vw + 5vh)) rotatex(90deg);
+}
+div.bottom {
+    transform: translatey(calc(-5vw - 5vh)) rotatex(90deg);
+}
+@keyframes rotate {
+    0% {
+        transform: rotatex(0deg) rotatey(0deg) rotatez(0deg);
+    }
+    100% {
+        transform: rotatex(360deg) rotatey(360deg) rotatez(360deg);
+    }
+}
